@@ -1,142 +1,57 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/index.css" />
     <title>news</title>
     <script src="js/script.js" type="module"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            newsLoad();
+        });
+    </script>
 </head>
+
 <body>
-<header class="header">
-    <div class="container container-header">
-        <a href="index.html">
-            <img src="img/logo.svg" alt="Логотип">
-        </a>
+    <header class="header">
+        <div class="container container-header">
+            <a href="index.html">
+                <img src="img/logo.svg" alt="Логотип" />
+            </a>
 
-        <form class="form" method="post">
-            <fieldset class="form__fieldset">
-                <label class="form__label">
-                    <input type="search" class="form__search" name="search" placeholder="Я хочу узнать про ..." required>
-                </label>
-                <button class="form__button">
-                    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.0996 15.1287L18.785 17.8127C18.9102 17.9424 18.9795 18.1161 18.9779 18.2963C18.9764 18.4766 18.9041 18.649 18.7766 18.7765C18.6491 18.904 18.4767 18.9763 18.2964 18.9778C18.1162 18.9794 17.9425 18.9101 17.8129 18.7849L15.1275 16.0995C13.3727 17.603 11.1037 18.3683 8.79673 18.235C6.48976 18.1016 4.32411 17.0799 2.7542 15.3843C1.1843 13.6886 0.332184 11.4508 0.376657 9.14037C0.421131 6.82998 1.35874 4.62661 2.99273 2.99261C4.62673 1.35862 6.8301 0.421008 9.14049 0.376535C11.4509 0.332062 13.6887 1.18418 15.3844 2.75408C17.08 4.32399 18.1018 6.48964 18.2351 8.79661C18.3685 11.1036 17.6031 13.3725 16.0996 15.1274V15.1287ZM9.31261 16.875C11.3183 16.875 13.2419 16.0782 14.6601 14.66C16.0783 13.2417 16.8751 11.3182 16.8751 9.31249C16.8751 7.30679 16.0783 5.38324 14.6601 3.96499C13.2419 2.54675 11.3183 1.74999 9.31261 1.74999C7.30691 1.74999 5.38336 2.54675 3.96512 3.96499C2.54687 5.38324 1.75011 7.30679 1.75011 9.31249C1.75011 11.3182 2.54687 13.2417 3.96512 14.66C5.38336 16.0782 7.30691 16.875 9.31261 16.875Z" fill="#212121"/>
-                    </svg>
-                </button>
-            </fieldset>
-            <select class="form__select" name="country">
-                <option selected value="ru">Россия</option>
-                <option value="en">Великобритания</option>
-                <option value="de">Германия</option>
-            </select>
-        </form>
-    </div>
-</header>
-<div class="app">
-    <section class="news">
-        <div class="news__head">
-            <div class="container">
-                <h2 class="news__header">Свежие новости</h2>
-            </div>
+            <form class="form" method="post">
+                <fieldset class="form__fieldset">
+                    <label class="form__label">
+                        <input type="search" class="form__search" name="search" placeholder="Я хочу узнать про ..." required/>
+                    </label>
+                    <button class="form__button">
+                        <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16.0996 15.1287L18.785 17.8127C18.9102 17.9424 18.9795 18.1161 18.9779 18.2963C18.9764 18.4766 18.9041 18.649 18.7766 18.7765C18.6491 18.904 18.4767 18.9763 18.2964 18.9778C18.1162 18.9794 17.9425 18.9101 17.8129 18.7849L15.1275 16.0995C13.3727 17.603 11.1037 18.3683 8.79673 18.235C6.48976 18.1016 4.32411 17.0799 2.7542 15.3843C1.1843 13.6886 0.332184 11.4508 0.376657 9.14037C0.421131 6.82998 1.35874 4.62661 2.99273 2.99261C4.62673 1.35862 6.8301 0.421008 9.14049 0.376535C11.4509 0.332062 13.6887 1.18418 15.3844 2.75408C17.08 4.32399 18.1018 6.48964 18.2351 8.79661C18.3685 11.1036 17.6031 13.3725 16.0996 15.1274V15.1287ZM9.31261 16.875C11.3183 16.875 13.2419 16.0782 14.6601 14.66C16.0783 13.2417 16.8751 11.3182 16.8751 9.31249C16.8751 7.30679 16.0783 5.38324 14.6601 3.96499C13.2419 2.54675 11.3183 1.74999 9.31261 1.74999C7.30691 1.74999 5.38336 2.54675 3.96512 3.96499C2.54687 5.38324 1.75011 7.30679 1.75011 9.31249C1.75011 11.3182 2.54687 13.2417 3.96512 14.66C5.38336 16.0782 7.30691 16.875 9.31261 16.875Z"
+                                fill="#212121" />
+                        </svg>
+                    </button>
+                </fieldset>
+                <select class="form__select" name="country">
+                    <option selected value="ru">Россия</option>
+                </select>
+            </form>
         </div>
-
-        <div class="container news__list">
-            <div class="news__item">
-                <img src="img/unsplash.png">
-                <a class="news__link" href="#">
-                    <h3 class="news__title">
-                        В России начали выпускать суверенные печатные платы — в них только отечественное сырьё и материалы
-                    </h3>
-                    <div class="news__arrow"></div>
-                </a>
-                <p class="news__body">
-                    Холдинг «Российские космические системы», входящий в состав «Роскосмоса»...
-                </p>
-                <div class="news__description">
-                    <div class="news__date">
-                        <p class="news__year">16/03/2022</p>
-                        <p class="news__time">11:06</p>
-                    </div>
-                    <p class="news__author">Эрик Крипке</p>
-                </div>
-            </div>
-
-            <div class="news__item">
-                <img src="img/unsplash.png">
-                <a class="news__link">
-                    <h3 class="news__title">
-                        В России начали выпускать суверенные печатные платы — в них только отечественное сырьё и материалы
-                    </h3>
-                    <div class="news__arrow"></div>
-                </a>
-                <p class="news__body">
-                    Холдинг «Российские космические системы», входящий в состав «Роскосмоса»...
-                </p>
-                <div class="news__description">
-                    <div class="news__date">
-                        <p class="news__year">16/03/2022</p>
-                        <p class="news__time">11:06</p>
-                    </div>
-                    <p class="news__author">Эрик Крипке</p>
-                </div>
-            </div>
-
-            <div class="news__item">
-                <img src="img/unsplash.png">
-                <a class="news__link">
-                    <h3 class="news__title">
-                        В России начали выпускать суверенные печатные платы — в них только отечественное сырьё и материалы
-                    </h3>
-                    <div class="news__arrow"></div>
-                </a>
-                <p class="news__body">
-                    Холдинг «Российские космические системы», входящий в состав «Роскосмоса»...
-                </p>
-                <div class="news__description">
-                    <div class="news__date">
-                        <p class="news__year">16/03/2022</p>
-                        <p class="news__time">11:06</p>
-                    </div>
-                    <p class="news__author">Эрик Крипке</p>
-                </div>
-            </div>
-
-            <div class="news__item">
-                <img src="img/unsplash.png">
-                <a class="news__link">
-                    <h3 class="news__title">
-                        В России начали выпускать суверенные печатные платы — в них только отечественное сырьё и материалы
-                    </h3>
-                    <div class="news__arrow"></div>
-                </a>
-                <p class="news__body">
-                    Холдинг «Российские космические системы», входящий в состав «Роскосмоса»...
-                </p>
-                <div class="news__description">
-                    <div class="news__date">
-                        <p class="news__year">16/03/2022</p>
-                        <p class="news__time">11:06</p>
-                    </div>
-                    <p class="news__author">Эрик Крипке</p>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
+    </header>
+    <div class="app"></div>
     <footer class="footer">
         <div class="container container-footer">
             <a href="index.html">
-                <img src="img/logo.svg" alt="Логотип">
+                <img src="img/logo.svg" alt="Логотип" />
             </a>
-            <p class="footer__copyright">
-                © 2020-2022 News
-            </p>
-
+            <p class="footer__copyright">© 2020-2022 News</p>
             <div class="footer__social">
                 <a class="footer__twitter" href="#"></a>
                 <a class="footer__habr" href="#"></a>
@@ -145,4 +60,5 @@
         </div>
     </footer>
 </body>
+
 </html>

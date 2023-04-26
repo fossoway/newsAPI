@@ -11,11 +11,13 @@
 .news__list{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap: 20px;
 }
 .news__item{
     display: flex;
     flex-direction: column;
+    flex-basis: 270px;
     gap: 10px;
 }
 .news__link{
@@ -47,4 +49,9 @@
 .news__date{
     display: flex;
     gap: 12px;
+}
+.news__img{
+    display: flex;
+    height: 200px;
+    width: 270px;
 }
