@@ -22,7 +22,7 @@ const fetchRequest = async (prefix, {
         
         if (response.ok) {
             const data = await response.json();
-            if (callback) return callback(title, data.articles);
+            if (callback) return callback(null, title, data.articles);
             return;
         }
 

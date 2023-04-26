@@ -102,9 +102,19 @@ const renderNews = (newsList, response) => {
     newsList.append(...allNews);
 };
 
-export const createNewsBlock = (title, response) => {
+export const createNewsBlock = (error, title, response) => {
+
     const news = document.createElement('section');
     news.classList.add('news');
+
+    if (error) {
+        const message = document.createElement('p');
+        message.classList.add('error');
+        message.innerText = 'Что-то пошло не так...';
+
+        news.append(message);
+        return news;
+    }
 
     const header = createNewsHeader(title);
 
