@@ -1,0 +1,31 @@
+.container-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer__copyright{
+    align-self: flex-end;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 130%;
+    color: #212121;
+}
+.footer__social{
+    display: flex;
+    gap: 15px;
+}
+.footer__twitter{
+    background-image: url(../img/twitter.svg);
+    width: 30px;
+    height: 30px;
+}
+.footer__habr{
+    background-image: url(../img/habr.svg);
+    width: 30px;
+    height: 30px;
+}
+.footer__vk{
+    background-image: url(../img/vk.svg);
+    width: 30px;
+    height: 30px;
+}
