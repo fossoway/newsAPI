@@ -35,13 +35,11 @@ select.addEventListener('change', e => {
         title: `Свежие новости`,
         callback: createNewsBlock,
         param: {
-            q: e.target.value,
+            country: e.target.value,
             pageSize: 8,
             apiKey: '59830de4fc58433aa1d02f7406842ea2',
         }
     });
-
-    console.log(answer)
 
     answer.then(data => {
         app.innerHTML = '';
