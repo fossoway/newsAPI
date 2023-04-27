@@ -7,11 +7,11 @@ const app = document.querySelector('.app');
 const form = document.querySelector('.form');
 const select = document.querySelector('.form__select');
 
-const init = async () => {
+const init = () => {
     preload.show();
     selectOption(select);
     
-    return Promise.all([fetchRequest('top-headlines?', {
+    const news = fetchRequest('top-headlines?', {
         title: 'Свежие новости',
         callback: createNewsBlock,
         param: {
@@ -20,18 +20,18 @@ const init = async () => {
             apiKey: '59830de4fc58433aa1d02f7406842ea2',
         }
     })
-]);
+    return news;
 };
 
 init().then(data => {
     app.innerHTML = '';
     preload.remove();
-    app.append(data[0]);
+    app.append(data);
 });
 
 select.addEventListener('change', e => {
     preload.show();
-    const answer = Promise.all([fetchRequest('top-headlines?', {
+    const answer = fetchRequest('top-headlines?', {
         title: `Свежие новости`,
         callback: createNewsBlock,
         param: {
@@ -39,12 +39,14 @@ select.addEventListener('change', e => {
             pageSize: 8,
             apiKey: '59830de4fc58433aa1d02f7406842ea2',
         }
-    })]);
+    });
+
+    console.log(answer)
 
     answer.then(data => {
         app.innerHTML = '';
         preload.remove();
-        app.append(data[0]);
+        app.append(data);
     })
 })
 
